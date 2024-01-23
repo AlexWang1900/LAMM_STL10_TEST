@@ -44,6 +44,7 @@ dataset_dict = {
     'ScanRefer_LAMM': ScanReferLAMMDataset,
     'Locating_VOC2012': LocatingVOC2012Dataset,
     'Locating_LSP': LocatingLSPDataset,
+    "STL10_LAMM": STL10LAMMDataset,
 
 
     # MMBench

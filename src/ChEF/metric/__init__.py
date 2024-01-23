@@ -45,6 +45,7 @@ evaluation_protocol = {
         'Flickr30k': LAMM_Caption,
         'ScienceQA': LAMM_VQA,
         'CIFAR10': LAMM_Classification,
+        "STL10":LAMM_Classification, #fix by wang
         'CelebA(Hair)': LAMM_Facial_Hair_Classification,
         'CelebA(Smile)': LAMM_Facial_Smile_Classification,
         'SVT': SVT_OCR,

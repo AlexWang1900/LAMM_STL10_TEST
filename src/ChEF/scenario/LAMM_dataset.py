@@ -424,3 +424,39 @@ class ScanReferLAMMDataset(Dataset):
             'gt_answers': item['object']
         }
         return data_dict
+
+
+import torchvision
+from PIL import Image
+import numpy as np
+class STL10LAMMDataset(Dataset):
+    task_name = 'classification_lamm'
+    dataset_name = 'STL10'
+    
+
+    def __init__(self,base_data_path, **kwargs):
+        super().__init__()
+        self.stl_10 = torchvision.datasets.STL10(root=base_data_path,split="test",download=True)
+        self.STL10_LABELS = ["airplane","bird","car","cat","deer","dog","horse","monkey","ship","truck"]
+    
+    def __len__(self):
+        return self.stl_10.__len__()
+        
+    def __getitem__(self, index):
+        
+        img, target = self.stl_10.data[index], int(self.stl_10.labels[index])
+        img = Image.fromarray(np.transpose(img, (1, 2, 0)))
+        data_id = str(index)
+
+        random_labels = random.sample(self.STL10_LABELS, len(self.STL10_LABELS))
+        shuffled_labels_str = ", ".join(random_labels)
+
+        additional_sentence = "Please choose a label from the following shuffled categories: "
+        query="What is the object in the image? Please provide a label that accurately describes the subject of the image."
+        data_dict = {
+            'id' : data_id,
+            'label' : self.STL10_LABELS[int(target)],
+            'question' : f"{query} {additional_sentence}{shuffled_labels_str}.",
+            'image_path' : img,
+        }
+        return data_dict
