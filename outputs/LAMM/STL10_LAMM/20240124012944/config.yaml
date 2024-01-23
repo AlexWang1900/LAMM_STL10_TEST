@@ -1,0 +1,33 @@
+model_cfg:
+  encoder_ckpt_path: ./model_zoo/clip-vit-large-patch14
+  encoder_pretrain: clip
+  llm_ckpt_path: /home/alex/Projects/Llama-2-7b-chat-hf
+  lora_alpha: 32
+  lora_dropout: 0.1
+  lora_r: 32
+  lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  max_tgt_len: 1024
+  model_name: LAMM
+  model_path: ./model_zoo/lamm186k_llama2chat7b_lora32/pytorch_model.pt
+  num_vision_token: 256
+  stage: 2
+  task_type: noraml
+  vision_feature_type: local
+  vision_output_layer: -2
+  vision_type: image
+recipe_cfg:
+  eval_cfg:
+    inferencer_cfg:
+      batch_size: 1
+      inferencer_type: Direct
+    instruction_cfg:
+      query_type: standard_query
+    metric_cfg:
+      metric_type: LAMM
+  scenario_cfg:
+    base_data_path: ./data/LAMM/2D_Benchmark
+    dataset_name: STL10_LAMM

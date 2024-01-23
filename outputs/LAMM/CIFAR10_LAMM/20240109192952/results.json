@@ -1,0 +1,6 @@
+{
+    "answer_path": "./outputs/LAMM/CIFAR10_LAMM/20240109192952/CIFAR10_20240109210444.json",
+    "result": {
+        "ACC": 0.2264
+    }
+}
