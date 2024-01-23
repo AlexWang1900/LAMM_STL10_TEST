@@ -1,5 +1,6 @@
 # LAMM
 USING lamm testing STL10 image classification task
+
 "args": ["--model_cfg", "./src/config/ChEF/models/lamm.yaml", "--recipe_cfg", "./src/config/ChEF/scenario_recipes/LAMM/STL10.yaml","--save_dir","./outputs"]
 
 
