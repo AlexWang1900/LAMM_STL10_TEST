@@ -1,4 +1,8 @@
 # LAMM
+USING lamm testing STL10 image classification task
+
+"args": ["--model_cfg", "./src/config/ChEF/models/lamm.yaml", "--recipe_cfg", "./src/config/ChEF/scenario_recipes/LAMM/STL10.yaml","--save_dir","./outputs"]
+
 
 LAMM (pronounced as /læm/, means cute lamb to show appreciation to LLaMA), is a growing open-source community aimed at helping researchers and developers quickly train and evaluate Multi-modal Large Language Models (MLLM), and futher build multi-modal AI agents capable of bridging the gap between ideas and execution, enabling seamless interaction between humans and AI machines.
 
